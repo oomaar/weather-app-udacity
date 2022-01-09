@@ -5,6 +5,17 @@ const endPoint = `https://api.openweathermap.org/data/2.5/weather`;
 /* Function to GET Web API Data*/
 
 /* Function to POST data */
+const postData = async data => {
+    await fetch("/add", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            temp: data.main.temp
+        })
+    });
+};
 
 /* Function to GET Project Data */
 
@@ -15,8 +26,8 @@ const buttonFunction = async e => {
     const zipCode = document.getElementById("zip");
     const baseURL = `${endPoint}?zip=${zipCode.value}&appid=${apiKey}&units=imperial`;
     const response = await fetch(baseURL).then(data => data.json());
-    console.log("🚀 ~ file: app.js ~ line 18 ~ response", response)
-    console.log("🚀 ~ file: app.js ~ line 17 ~ baseURL", baseURL)
+
+    postData(response);
 };
 
 // Event listener to add function to existing HTML DOM element
