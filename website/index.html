@@ -23,20 +23,23 @@
       <div class="logo-container">
         <h1 class="logo">Weather Journal App</h1>
       </div>
-      <div class="input-container">
-        <label for="zip">Enter Zip Code</label>
-        <input type="text" id="zip" placeholder="Enter Zip Code" />
-      </div>
-      <div class="input-container">
-        <label for="feelings">How are you feeling?</label>
-        <textarea
-          name=""
-          id="feelings"
-          cols="10"
-          rows="10"
-          placeholder="Enter your feeling"
-        ></textarea>
-      </div>
+      <form class="form-container">
+        <div class="input-container">
+          <label for="zip">Enter Zip Code</label>
+          <input type="text" id="zip" placeholder="Enter Zip Code" />
+        </div>
+        <div class="input-container">
+          <label for="feelings">How are you feeling?</label>
+          <textarea
+            name=""
+            id="feelings"
+            cols="10"
+            rows="10"
+            placeholder="Enter your feeling"
+          ></textarea>
+        </div>
+        <button type="submit" id="generate">Generate</button>
+      </form>
       <div class="output">
         <h1 class="title">Most Recent Entry</h1>
         <div id="entryHolder">
