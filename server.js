@@ -29,7 +29,8 @@ app.get("/all", (req, res) => res.send(projectData));
 // Post Route
 app.post("/add", (req, res) => {
     const serverData = {
-        temp: req.body.temp
+        temp: req.body.temp,
+        date: req.body.date
     };
     projectData = serverData;
     console.log("🚀 ~ file: server.js ~ line 35 ~ app.post ~ projectData", projectData);
