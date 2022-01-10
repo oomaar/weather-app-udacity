@@ -18,6 +18,10 @@ const postData = async data => {
 };
 
 /* Function to GET Project Data */
+const updateUI = async () => {
+    const uiData = await fetch("/all").then(data => data.json());
+    document.getElementById("temp").innerHTML = `${uiData.temp}`;
+};
 
 /* Function called by event listener */
 const buttonFunction = async e => {
@@ -28,6 +32,7 @@ const buttonFunction = async e => {
     const response = await fetch(baseURL).then(data => data.json());
 
     postData(response);
+    updateUI();
 };
 
 // Event listener to add function to existing HTML DOM element
