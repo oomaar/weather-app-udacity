@@ -1,6 +1,7 @@
 // Setup empty JS object to act as endpoint for all routes
 let projectData = {};
 
+/* Dependencies */
 // Express to run server and routes
 const express = require("express");
 const cors = require("cors");
@@ -9,7 +10,6 @@ const bodyParser = require("body-parser");
 // Start up an instance of app
 const app = express();
 
-/* Dependencies */
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,7 +33,7 @@ app.post("/add", (req, res) => {
         date: req.body.date
     };
     projectData = serverData;
-    console.log("🚀 ~ file: server.js ~ line 35 ~ app.post ~ projectData", projectData);
+    // console.log("🚀 ~ file: server.js ~ line 35 ~ app.post ~ projectData", projectData);
 });
 
 // Spin up the server
