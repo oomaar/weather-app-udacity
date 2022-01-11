@@ -14,7 +14,14 @@ const postData = async data => {
         },
         body: JSON.stringify({
             temp: data.main.temp,
-            date: newDate
+            date: newDate,
+            feelsLiks: data.main.feels_like,
+            humidity: data.main.humidity,
+            pressure: data.main.pressure,
+            tempMax: data.main.temp_max,
+            tempMin: data.main.temp_min,
+            visibility: data.visibility,
+            windSpeed: data.wind.speed,
         })
     });
 };
@@ -24,7 +31,18 @@ const updateUI = async () => {
     const uiData = await fetch("/all").then(data => data.json());
     document.getElementById("temp").innerText = `${uiData.temp}`;
     document.getElementById("date").innerText = `${uiData.date}`;
+    document.getElementById("content").innerHTML = `
+    feelsLiks: ${uiData.feelsLiks}
+    humidity: ${uiData.humidity}
+    pressure: ${uiData.pressure}
+    tempMax: ${uiData.tempMax}
+    tempMin: ${uiData.tempMin}
+    visibility: ${uiData.visibility}
+    windSpeed: ${uiData.windSpeed}
+    `
 };
+
+
 
 /* Function called by event listener */
 const buttonFunction = async e => {
@@ -33,7 +51,7 @@ const buttonFunction = async e => {
     const zipCode = document.getElementById("zip");
     const baseURL = `${endPoint}?zip=${zipCode.value}&appid=${apiKey}&units=imperial`;
     const response = await fetch(baseURL).then(data => data.json());
-    // console.log("🚀 ~ file: app.js ~ line 37 ~ response", response);
+    console.log("🚀 ~ file: app.js ~ line 37 ~ response", response);
 
     // Step-2: POST data to Server
     postData(response);

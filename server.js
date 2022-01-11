@@ -30,7 +30,14 @@ app.get("/all", (req, res) => res.send(projectData));
 app.post("/add", (req, res) => {
     const serverData = {
         temp: req.body.temp,
-        date: req.body.date
+        date: req.body.date,
+        feelsLiks: req.body.feelsLiks,
+        humidity: req.body.humidity,
+        pressure: req.body.pressure,
+        tempMax: req.body.tempMax,
+        tempMin: req.body.tempMin,
+        visibility: req.body.visibility,
+        windSpeed: req.body.windSpeed,
     };
     projectData = serverData;
     // console.log("🚀 ~ file: server.js ~ line 35 ~ app.post ~ projectData", projectData);
