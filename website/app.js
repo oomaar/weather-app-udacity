@@ -29,17 +29,20 @@ const postData = async data => {
 /* Function to updateUI */
 const updateUI = async () => {
     const uiData = await fetch("/all").then(data => data.json());
-    document.getElementById("temp").innerText = `${uiData.temp}`;
-    document.getElementById("date").innerText = `${uiData.date}`;
-    document.getElementById("content").innerHTML = `
-    feelsLiks: ${uiData.feelsLiks}
-    humidity: ${uiData.humidity}
-    pressure: ${uiData.pressure}
-    tempMax: ${uiData.tempMax}
-    tempMin: ${uiData.tempMin}
-    visibility: ${uiData.visibility}
-    windSpeed: ${uiData.windSpeed}
-    `
+    const feelings = document.getElementById("feelings");
+
+    document.getElementById("temp").innerHTML = `${Math.round(uiData.temp)}&deg`;
+    document.getElementById("date").innerHTML = `${uiData.date}`;
+    document.getElementById("users-feeling").innerHTML = `<p>Users Feeling</p> ${feelings.value}`
+
+    // Extra Data
+    document.getElementById("weather-feelsLiks").innerHTML = `<p>Feels Like</p> ${uiData.feelsLiks} &deg`
+    document.getElementById("humidity").innerHTML = `<p>Humidity</p> ${uiData.humidity} %`
+    document.getElementById("pressure").innerHTML = `<p>Pressure</p> ${uiData.pressure} hPa`
+    document.getElementById("temp-max").innerHTML = `<p>Temp Max</p> ${Math.round(uiData.tempMax)} &deg`
+    document.getElementById("temp-min").innerHTML = `<p>Temp Min</p> ${Math.round(uiData.tempMin)} &deg`
+    document.getElementById("visibility").innerHTML = `<p>Visibility</p> ${uiData.visibility / 1000} km`
+    document.getElementById("wind-speed").innerHTML = `<p>Wind Speed</p> ${uiData.windSpeed} km/h`
 };
 
 
@@ -58,6 +61,7 @@ const buttonFunction = async e => {
 
     // Step-3: Update UI
     updateUI();
+    document.querySelector(".output").style.opacity = 1;
 };
 
 // Event listener to add function to existing HTML DOM element
