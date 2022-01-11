@@ -19,6 +19,13 @@ const postData = async data => {
     });
 };
 
+/* Function to updateUI */
+const updateUI = async () => {
+    const uiData = await fetch("/all").then(data => data.json());
+    document.getElementById("temp").innerText = `${uiData.temp}`;
+    document.getElementById("date").innerText = `${uiData.date}`;
+};
+
 /* Function called by event listener */
 const buttonFunction = async e => {
     e.preventDefault();
@@ -30,6 +37,9 @@ const buttonFunction = async e => {
 
     // Step-2: POST data to Server
     postData(response);
+
+    // Step-3: Update UI
+    updateUI();
 };
 
 // Event listener to add function to existing HTML DOM element
