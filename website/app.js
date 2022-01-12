@@ -62,6 +62,7 @@ const buttonFunction = async e => {
     // Step-3: Update UI
     updateUI();
     document.querySelector(".output").style.opacity = 1;
+    document.querySelector(".output").style.transform = `translateY(0)`;
 };
 
 // Event listener to add function to existing HTML DOM element
