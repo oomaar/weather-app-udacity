@@ -23,11 +23,7 @@ app.use(express.static("website"));
 
 // Callback to debug
 // Initialize all route with a callback function
-// Callback function to complete GET '/all'
-app.get("/all", (req, res) => res.send(projectData));
-
-// Post Route
-app.post("/add", (req, res) => {
+const postRoute = (req, res) => {
     const serverData = {
         temp: req.body.temp,
         date: req.body.date,
@@ -40,8 +36,13 @@ app.post("/add", (req, res) => {
         windSpeed: req.body.windSpeed,
     };
     projectData = serverData;
-    // console.log("🚀 ~ file: server.js ~ line 35 ~ app.post ~ projectData", projectData);
-});
+};
+
+// Callback function to complete GET '/all'
+app.get("/all", (req, res) => res.send(projectData));
+
+// Post Route
+app.post("/add", postRoute);
 
 // Spin up the server
 const port = `7000`;

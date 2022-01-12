@@ -55,11 +55,11 @@ const updateUI = async () => {
 /* Function called by event listener */
 const buttonFunction = async e => {
     e.preventDefault();
+
     // Step-1: GET Web API Data
     const zipCode = document.getElementById("zip");
     const baseURL = `${endPoint}?zip=${zipCode.value}&appid=${apiKey}`;
     const response = await fetch(baseURL).then(data => data.json());
-    console.log("🚀 ~ file: app.js ~ line 37 ~ response", response);
 
     // Step-2: POST data to Server
     postData("/add", response);
