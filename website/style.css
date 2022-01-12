@@ -40,6 +40,10 @@ nav h1 {
   font-size: 1.5rem;
 }
 
+nav h1 span {
+  color: hsl(240, 100%, 69%);
+}
+
 #app {
   display: flex;
   flex-direction: column;
@@ -92,14 +96,14 @@ nav h1 {
 }
 
 .input-container input:focus {
-  border: 2px solid hsl(198, 69%, 50%);
+  border: 2px solid hsl(240, 100%, 69%);
 }
 
 .input-container input:focus + .input-label .label-span {
   transform: translateY(-100%);
   font-size: 12px;
   left: 7%;
-  color: hsl(198, 69%, 50%);
+  color: hsl(240, 100%, 69%);
 }
 
 .input-container input:valid + .input-label .label-span {
@@ -112,7 +116,7 @@ nav h1 {
   border: 1px solid transparent;
   outline: 0;
   color: hsl(0, 100%, 100%);
-  background-color: hsl(198, 69%, 50%);
+  background-color: hsl(240, 100%, 69%);
   padding: 0.5rem 2rem;
   border-radius: 1rem;
   font-size: 1.2rem;
@@ -167,7 +171,7 @@ nav h1 {
   padding: 1.5rem;
   border-radius: 1rem;
   font-size: 1.1rem;
-  color: hsl(198, 69%, 50%);
+  color: hsl(240, 100%, 69%);
 }
 
 #content ul li p {
